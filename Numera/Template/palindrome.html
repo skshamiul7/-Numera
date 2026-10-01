@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Reverse / Palindrome{% endblock %}
+{% block content %}
+<div class="tool-container">
+    <h2 class="tool-title">Reverse an Integer / Check Palindrome</h2>
+    <p class="tool-desc">Enter an integer. We'll reverse it and check if it's a palindrome.</p>
+    <form method="post" class="tool-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="number">Integer:</label>
+            <input type="number" id="number" name="number" placeholder="e.g. 12321" required>
+        </div>
+        <button type="submit" class="btn-primary">Process</button>
+    </form>
+    {% if result %}
+        <div class="result-box {% if 'palindrome' in result|lower and 'not' not in result|lower %}result-success{% else %}result-info{% endif %}">
+            <p>{{ result }}</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

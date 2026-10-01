@@ -1,0 +1,25 @@
+<!-- ============================================================
+     FIBONACCI PAGE (fibonacci.html)
+     ============================================================ -->
+{% extends "base.html" %}
+{% block title %}Fibonacci Sequence{% endblock %}
+{% block content %}
+<div class="tool-container">
+    <h2 class="tool-title">Fibonacci Sequence</h2>
+    <p class="tool-desc">Enter how many terms of the Fibonacci sequence you want to see.</p>
+    <form method="post" class="tool-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="terms">Number of terms:</label>
+            <input type="number" id="terms" name="terms" min="1" placeholder="e.g. 8" required>
+        </div>
+        <button type="submit" class="btn-primary">Generate</button>
+    </form>
+    {% if result %}
+        <div class="result-box result-success">
+            <p>{{ result }}</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+

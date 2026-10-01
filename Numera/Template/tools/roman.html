@@ -1,0 +1,9 @@
+{% extends "tools/_tool_layout.html" %}
+{% block form_fields %}
+<div class="form-group"><label>Mode:</label>
+<select name="mode" class="form-select" required>
+<option value="to_roman">Number → Roman</option>
+<option value="from_roman">Roman → Number</option>
+</select></div>
+<div class="form-group"><label>Value:</label><input type="text" name="value" placeholder="e.g. 1987 or MCMLXXXVII" required></div>
+{% endblock %}

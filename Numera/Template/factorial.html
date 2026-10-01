@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Factorial{% endblock %}
+{% block content %}
+<div class="tool-container">
+    <h2 class="tool-title">Factorial Calculator</h2>
+    <p class="tool-desc">Enter a non-negative integer to compute its factorial.</p>
+    <form method="post" class="tool-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="number">Number (n ≥ 0):</label>
+            <input type="number" id="number" name="number" min="0" placeholder="e.g. 5" required>
+        </div>
+        <button type="submit" class="btn-primary">Calculate</button>
+    </form>
+    {% if result %}
+        <div class="result-box result-success">
+            <p>{{ result }}</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
