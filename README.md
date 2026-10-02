@@ -148,5 +148,5 @@ Shamiul Islam
 GitHub: @skshamiul7
 
 Project Link: https://github.com/skshamiul7/-Numera
-Live Demo: numera-jdm0.onrender.com
+Live Demo: https://numera-jdm0.onrender.com/
 
