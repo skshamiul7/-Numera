@@ -1,0 +1,1 @@
+web: gunicorn Numera.wsgi:application
