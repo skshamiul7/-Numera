@@ -1,0 +1,24 @@
+<!-- ============================================================
+     PRIME NUMBER CHECK PAGE (prime.html)
+     ============================================================ -->
+{% extends "base.html" %}
+{% block title %}Prime Number Check{% endblock %}
+{% block content %}
+<div class="tool-container">
+    <h2 class="tool-title">Prime Number Check</h2>
+    <p class="tool-desc">Enter a number to check if it is prime.</p>
+    <form method="post" class="tool-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="number">Number:</label>
+            <input type="number" id="number" name="number" min="2" placeholder="e.g. 17" required>
+        </div>
+        <button type="submit" class="btn-primary">Check</button>
+    </form>
+    {% if result %}
+        <div class="result-box {% if 'prime' in result|lower and 'not' not in result|lower %}result-success{% else %}result-info{% endif %}">
+            <p>{{ result }}</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

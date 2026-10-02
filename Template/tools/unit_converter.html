@@ -1,0 +1,16 @@
+{% extends "tools/_tool_layout.html" %}
+{% block form_fields %}
+<div class="form-group"><label>Value:</label><input type="number" step="any" name="value" required></div>
+<div class="form-group"><label>From:</label>
+<select name="from_unit" class="form-select" required>
+<option value="mm">mm</option><option value="cm">cm</option><option value="m">m</option>
+<option value="km">km</option><option value="in">in</option><option value="ft">ft</option>
+<option value="yd">yd</option><option value="mi">mi</option>
+</select></div>
+<div class="form-group"><label>To:</label>
+<select name="to_unit" class="form-select" required>
+<option value="mm">mm</option><option value="cm">cm</option><option value="m">m</option>
+<option value="km">km</option><option value="in">in</option><option value="ft">ft</option>
+<option value="yd">yd</option><option value="mi">mi</option>
+</select></div>
+{% endblock %}

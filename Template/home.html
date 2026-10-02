@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<!-- Hero -->
+<div class="home-hero">
+    <h2 class="hero-title">Welcome to Numera</h2>
+    <p class="hero-subtitle">44 tools Avaiable</p>
+</div>
+
+<!-- Search Bar -->
+<div class="search-wrapper">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="toolSearch" class="search-input" placeholder="Search tools... (e.g. prime, LCM, roman)" autocomplete="off">
+</div>
+
+<!-- Recently Used -->
+{% if recent_tools %}
+<section class="category recent-section" id="recentSection">
+    <h3 class="category-title">🕘 Recently Used</h3>
+    <div class="menu-grid">
+        {% for name, icon, slug in recent_tools %}
+            <a href="{% url slug %}" class="menu-card menu-card-recent">
+                <span class="menu-icon">{{ icon }}</span>
+                <span class="menu-label">{{ name }}</span>
+            </a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<!-- Category: Basic -->
+<section class="category">
+    <h3 class="category-title">🧮 Basic Tools</h3>
+    <div class="menu-grid">
+        <a href="{% url 'evenodd' %}" class="menu-card"><span class="menu-icon">🔢</span><span class="menu-label">Even or Odd</span></a>
+        <a href="{% url 'factorial' %}" class="menu-card"><span class="menu-icon">✖️</span><span class="menu-label">Factorial</span></a>
+        <a href="{% url 'fibonacci' %}" class="menu-card"><span class="menu-icon">🌀</span><span class="menu-label">Fibonacci</span></a>
+        <a href="{% url 'prime' %}" class="menu-card"><span class="menu-icon">🔍</span><span class="menu-label">Prime Check</span></a>
+        <a href="{% url 'gcd' %}" class="menu-card"><span class="menu-icon">📐</span><span class="menu-label">GCD</span></a>
+        <a href="{% url 'lcm' %}" class="menu-card"><span class="menu-icon">📏</span><span class="menu-label">LCM</span></a>
+        <a href="{% url 'palindrome' %}" class="menu-card"><span class="menu-icon">🔄</span><span class="menu-label">Palindrome</span></a>
+        <a href="{% url 'digit_ops' %}" class="menu-card"><span class="menu-icon">🔟</span><span class="menu-label">Digit Sum/Product</span></a>
+        <a href="{% url 'digital_root' %}" class="menu-card"><span class="menu-icon">🌱</span><span class="menu-label">Digital Root</span></a>
+    </div>
+</section>
+
+<!-- Category: Number Theory -->
+<section class="category">
+    <h3 class="category-title">🔢 Number Theory</h3>
+    <div class="menu-grid">
+        <a href="{% url 'perfect' %}" class="menu-card"><span class="menu-icon">✨</span><span class="menu-label">Perfect Number</span></a>
+        <a href="{% url 'armstrong' %}" class="menu-card"><span class="menu-icon">💪</span><span class="menu-label">Armstrong</span></a>
+        <a href="{% url 'prime_factor' %}" class="menu-card"><span class="menu-icon">🧩</span><span class="menu-label">Prime Factorization</span></a>
+        <a href="{% url 'sieve' %}" class="menu-card"><span class="menu-icon">🕸️</span><span class="menu-label">Sieve of Eratosthenes</span></a>
+        <a href="{% url 'twin_prime' %}" class="menu-card"><span class="menu-icon">👯</span><span class="menu-label">Twin Primes</span></a>
+        <a href="{% url 'coprime' %}" class="menu-card"><span class="menu-icon">🤝</span><span class="menu-label">Coprime Check</span></a>
+        <a href="{% url 'prime_counter' %}" class="menu-card"><span class="menu-icon">📊</span><span class="menu-label">Prime Counter</span></a>
+        <a href="{% url 'happy' %}" class="menu-card"><span class="menu-icon">😊</span><span class="menu-label">Happy Number</span></a>
+        <a href="{% url 'kaprekar' %}" class="menu-card"><span class="menu-icon">🎯</span><span class="menu-label">Kaprekar 6174</span></a>
+    </div>
+</section>
+
+<!-- Category: Sequences & Series -->
+<section class="category">
+    <h3 class="category-title">📈 Sequences & Series</h3>
+    <div class="menu-grid">
+        <a href="{% url 'sum_series' %}" class="menu-card"><span class="menu-icon">➕</span><span class="menu-label">Sum of Series</span></a>
+        <a href="{% url 'ap' %}" class="menu-card"><span class="menu-icon">➡️</span><span class="menu-label">Arithmetic Progression</span></a>
+        <a href="{% url 'gp' %}" class="menu-card"><span class="menu-icon">✴️</span><span class="menu-label">Geometric Progression</span></a>
+        <a href="{% url 'pascal' %}" class="menu-card"><span class="menu-icon">🔺</span><span class="menu-label">Pascal's Triangle</span></a>
+        <a href="{% url 'collatz' %}" class="menu-card"><span class="menu-icon">🌊</span><span class="menu-label">Collatz</span></a>
+    </div>
+</section>
+
+<!-- Category: Arithmetic -->
+<section class="category">
+    <h3 class="category-title">🧮 Arithmetic</h3>
+    <div class="menu-grid">
+        <a href="{% url 'power' %}" class="menu-card"><span class="menu-icon">⚡</span><span class="menu-label">Power</span></a>
+        <a href="{% url 'roots' %}" class="menu-card"><span class="menu-icon">√</span><span class="menu-label">Square/Cube Root</span></a>
+        <a href="{% url 'mod_exp' %}" class="menu-card"><span class="menu-icon">🔐</span><span class="menu-label">Modular Exponentiation</span></a>
+        <a href="{% url 'combinatorics' %}" class="menu-card"><span class="menu-icon">🎲</span><span class="menu-label">nPr & nCr</span></a>
+    </div>
+</section>
+
+<!-- Category: Geometry -->
+<section class="category">
+    <h3 class="category-title">📐 Geometry</h3>
+    <div class="menu-grid">
+        <a href="{% url 'area_perimeter' %}" class="menu-card"><span class="menu-icon">🟦</span><span class="menu-label">Area & Perimeter</span></a>
+        <a href="{% url 'volume_area' %}" class="menu-card"><span class="menu-icon">🧊</span><span class="menu-label">Volume & Surface</span></a>
+        <a href="{% url 'pythagorean' %}" class="menu-card"><span class="menu-icon">📐</span><span class="menu-label">Pythagorean</span></a>
+        <a href="{% url 'distance' %}" class="menu-card"><span class="menu-icon">📍</span><span class="menu-label">Distance</span></a>
+        <a href="{% url 'midpoint' %}" class="menu-card"><span class="menu-icon">🎯</span><span class="menu-label">Midpoint</span></a>
+        <a href="{% url 'slope' %}" class="menu-card"><span class="menu-icon">📉</span><span class="menu-label">Slope</span></a>
+    </div>
+</section>
+
+<!-- Category: Statistics -->
+<section class="category">
+    <h3 class="category-title">📊 Statistics</h3>
+    <div class="menu-grid">
+        <a href="{% url 'stats' %}" class="menu-card"><span class="menu-icon">📊</span><span class="menu-label">Mean/Median/Mode</span></a>
+        <a href="{% url 'variance' %}" class="menu-card"><span class="menu-icon">📈</span><span class="menu-label">Variance & Std Dev</span></a>
+        <a href="{% url 'minmax' %}" class="menu-card"><span class="menu-icon">🔽</span><span class="menu-label">Min/Max/Range</span></a>
+        <a href="{% url 'quartiles' %}" class="menu-card"><span class="menu-icon">📦</span><span class="menu-label">Quartiles & IQR</span></a>
+    </div>
+</section>
+
+<!-- Category: Conversions -->
+<section class="category">
+    <h3 class="category-title">🔄 Conversions</h3>
+    <div class="menu-grid">
+        <a href="{% url 'base_converter' %}" class="menu-card"><span class="menu-icon">🔢</span><span class="menu-label">Base Converter</span></a>
+        <a href="{% url 'binary_decimal' %}" class="menu-card"><span class="menu-icon">💻</span><span class="menu-label">Binary ↔ Decimal</span></a>
+        <a href="{% url 'roman' %}" class="menu-card"><span class="menu-icon">🏛️</span><span class="menu-label">Roman Numerals</span></a>
+        <a href="{% url 'unit_converter' %}" class="menu-card"><span class="menu-icon">📏</span><span class="menu-label">Length Units</span></a>
+        <a href="{% url 'temperature' %}" class="menu-card"><span class="menu-icon">🌡️</span><span class="menu-label">Temperature</span></a>
+    </div>
+</section>
+
+<!-- Category: Fun -->
+<section class="category">
+    <h3 class="category-title">🎲 Fun</h3>
+    <div class="menu-grid">
+        <a href="{% url 'random_number' %}" class="menu-card"><span class="menu-icon">🎰</span><span class="menu-label">Random Number</span></a>
+        <a href="{% url 'dice_coin' %}" class="menu-card"><span class="menu-icon">🪙</span><span class="menu-label">Dice / Coin</span></a>
+    </div>
+</section>
+
+{% endblock %}

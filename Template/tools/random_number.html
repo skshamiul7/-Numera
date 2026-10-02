@@ -1,0 +1,6 @@
+{% extends "tools/_tool_layout.html" %}
+{% block form_fields %}
+<div class="form-group"><label>Low:</label><input type="number" name="low" required></div>
+<div class="form-group"><label>High:</label><input type="number" name="high" required></div>
+<div class="form-group"><label>Count (1–100):</label><input type="number" name="count" min="1" max="100" value="1" required></div>
+{% endblock %}

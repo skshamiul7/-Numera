@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}{{ title|default:"Math Toolkit" }}{% endblock %}
+{% block content %}
+<div class="tool-container">
+    <h2 class="tool-title">{{ title|default:"Tool" }}</h2>
+    <p class="tool-desc">{{ description|default:"" }}</p>
+
+    <form method="post" class="tool-form">
+        {% csrf_token %}
+        {% block form_fields %}{% endblock %}
+        <button type="submit" class="btn-primary">{{ submit_label|default:"Calculate" }}</button>
+    </form>
+
+    {% if result %}
+        <div class="result-box result-success">
+            <pre class="result-text">{{ result }}</pre>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
